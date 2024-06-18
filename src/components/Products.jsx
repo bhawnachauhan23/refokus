@@ -3,6 +3,52 @@ import Product from "./Product";
 import { motion } from "framer-motion";
 
 function Products() {
+  const initialColors = [
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+    "#18181B",
+  ];
+  const hoverColors = [
+    "#5355EE",
+    "#4A576B",
+    "#1626F3",
+    "#3E4365",
+    "#2CC874",
+    "#3F1AAB",
+    "#4730C6",
+    "#FF7548",
+    "#4149F0",
+    "#FF501A",
+    "#3D77E9",
+    "#426A78",
+    "#5555E4",
+    "#695CF1",
+    "#24014E",
+    "#5C4DFD",
+    "#372864",
+    "#FD9E2E",
+    "#24412F",
+    "#EC4141",
+  ];
+  const [bgColors, setBgColors] = useState(initialColors);
+
   var products = [
     {
       title: "Arqitel",
@@ -152,10 +198,30 @@ function Products() {
     setPos(val * 23);
   };
 
+  const handleMouseEnter = (index) => {
+    const newColors = [...bgColors];
+    newColors[index] = hoverColors[index];
+    setBgColors(newColors);
+  };
+
+  const handleMouseLeave = (index) => {
+    const newColors = [...bgColors];
+    newColors[index] = initialColors[index];
+    setBgColors(newColors);
+  };
+
   return (
     <div className="bg-zinc-900 pb-20 relative">
       {products.map((elem, index) => (
-        <Product key={index} val={elem} mover={mover} count={index} />
+        <Product
+          key={index}
+          val={elem}
+          mover={mover}
+          count={index}
+          bgColor={bgColors[index]}
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />
       ))}
       <div className="w-full h-full absolute pointer-events-none  top-0">
         <motion.div
@@ -168,7 +234,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Arqitel.webm" type="video/mp4" />
+              <source src="Arqitel.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -176,7 +242,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Cula.mp4" type="video/mp4" />
+              <source src="Cula.mp4" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -184,7 +250,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full ">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/LandLayout.mp4" type="video/mp4" />
+              <source src="LandLayout.mp4" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -192,7 +258,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/TTR.webm" type="video/mp4" />
+              <source src="TTR.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -200,7 +266,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Maniv.mp4" type="video/mp4" />
+              <source src="Maniv.mp4" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -208,7 +274,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Singularity.webm" type="video/mp4" />
+              <source src="Singularity.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -216,7 +282,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/likemagic.webm" type="video/mp4" />
+              <source src="likemagic.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -224,7 +290,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Silvr.webm" type="video/mp4" />
+              <source src="Silvr.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -232,7 +298,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/rainfall.webm" type="video/mp4" />
+              <source src="rainfall.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -240,7 +306,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Intenseye.webm" type="video/mp4" />
+              <source src="Intenseye.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -248,7 +314,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/remind.webm" type="video/mp4" />
+              <source src="remind.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -256,7 +322,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/summon.webm" type="video/mp4" />
+              <source src="summon.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -264,7 +330,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/jungle.webm" type="video/mp4" />
+              <source src="jungle.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -272,7 +338,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/Candid.webm" type="video/mp4" />
+              <source src="Candid.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -280,7 +346,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/yahoo.webm" type="video/mp4" />
+              <source src="yahoo.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -288,7 +354,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/YIR2024.webm" type="video/mp4" />
+              <source src="YIR2024.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -296,7 +362,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/yearinreview.webm" type="video/mp4" />
+              <source src="yearinreview.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -304,7 +370,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/showcase.mp4" type="video/mp4" />
+              <source src="showcase.mp4" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -312,7 +378,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/weglot.webm" type="video/mp4" />
+              <source src="weglot.webm" type="video/mp4" />
             </video>
           </motion.div>
           <motion.div
@@ -320,7 +386,7 @@ function Products() {
             transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
             className="w-full h-full">
             <video autoPlay muted loop className="w-full h-full object-cover">
-              <source src="./src/assets/rocketchat.webm" type="video/mp4" />
+              <source src="rocketchat.webm" type="video/mp4" />
             </video>
           </motion.div>
         </motion.div>
